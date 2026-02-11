@@ -58,14 +58,14 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="section-stack flex items-start justify-center px-4">
+    <section id="about" className="min-h-screen flex items-start justify-center px-4">
       <div className="section-card w-full max-w-[1400px] mx-auto px-6 py-24 lg:py-32">
         {/* Decorative dot grid */}
         <div className="absolute top-0 right-0 w-1/3 h-1/3 dot-grid opacity-20 rounded-tr-3xl" />
 
         <div className="max-w-5xl mx-auto">
           {/* Section header */}
-          <div className="mb-16">
+          <div className="mb-16 motion-up">
             <div className="flex items-center gap-4 mb-6">
               <span className="section-num">02</span>
               <div className="w-8 h-px bg-[var(--border2)]" />
@@ -82,9 +82,9 @@ export default function About() {
           </div>
 
           {/* Expertise grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[var(--border1)] rounded-2xl overflow-hidden mb-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[var(--border1)] rounded-2xl overflow-hidden mb-24 motion-up motion-up-delay-1">
             {expertises.map((e) => (
-              <div key={e.num} className="bg-[var(--bg)] p-8 lg:p-10 flex flex-col gap-5 relative">
+              <div key={e.num} className="bg-[var(--bg)] p-8 lg:p-10 flex flex-col gap-5 relative glass-card">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <span className="section-num">{e.num}</span>
@@ -104,14 +104,14 @@ export default function About() {
           </div>
 
           {/* Divider */}
-          <div className="divider-label mb-16">
+          <div className="divider-label mb-16 motion-up motion-up-delay-2">
             <span className="text-[9px] text-[var(--t4)] tracking-widest uppercase whitespace-nowrap">Stack technique</span>
           </div>
 
           {/* Stack grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 motion-up motion-up-delay-3">
             {stack.map((s) => (
-              <div key={s.cat} className="border border-[var(--border1)] rounded-2xl p-6 flex flex-col gap-5 relative overflow-hidden">
+              <div key={s.cat} className="border border-[var(--border1)] rounded-2xl p-6 flex flex-col gap-5 relative overflow-hidden hover-lift glass-card">
                 <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-white/[0.06] to-transparent" />
                 <div className="flex items-center justify-between">
                   <h3 className="text-[13px] font-semibold text-[var(--t1)]">{s.cat}</h3>

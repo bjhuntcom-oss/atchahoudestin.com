@@ -9,14 +9,14 @@ export default function ProjectsGrid() {
   const featured = projects.slice(0, 6);
 
   return (
-    <section className="section-stack flex items-start justify-center px-4">
+    <section className="min-h-screen flex items-start justify-center px-4">
       <div className="section-card w-full max-w-[1400px] mx-auto px-6 py-24 lg:py-32">
         {/* Decorative */}
         <div className="absolute bottom-0 left-0 w-1/4 h-1/4 dot-grid opacity-15 rounded-bl-3xl" />
 
         <div className="max-w-5xl mx-auto">
           {/* Header */}
-          <div className="flex items-end justify-between mb-16">
+          <div className="flex items-end justify-between mb-16 motion-up">
             <div>
               <div className="flex items-center gap-4 mb-6">
                 <span className="section-num">03</span>
@@ -33,7 +33,7 @@ export default function ProjectsGrid() {
             </div>
             <Link
               href="/projets"
-              className="hidden md:flex badge badge-white text-[11px] font-semibold gap-2 hover:opacity-90 transition-opacity"
+              className="hidden md:flex btn-glass btn-primary text-[11px]"
             >
               Voir les 20 projets
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -43,12 +43,12 @@ export default function ProjectsGrid() {
           </div>
 
           {/* Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--border1)] rounded-2xl overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--border1)] rounded-2xl overflow-hidden motion-up motion-up-delay-1">
             {featured.map((p) => (
               <Link
                 key={p.slug}
                 href={`/projets/${p.slug}`}
-                className="group bg-[var(--bg)] p-6 lg:p-7 flex flex-col gap-4 hover:bg-[var(--bg2)] transition-colors relative"
+                className="group bg-[var(--bg)] p-6 lg:p-7 flex flex-col gap-4 hover:bg-[var(--bg2)] transition-all duration-300 relative glass-card"
               >
                 {/* Top row */}
                 <div className="flex items-center justify-between">
@@ -101,8 +101,8 @@ export default function ProjectsGrid() {
           </div>
 
           {/* Mobile CTA */}
-          <div className="flex justify-center mt-10 md:hidden">
-            <Link href="/projets" className="badge badge-white text-[11px] font-semibold gap-2">
+          <div className="flex justify-center mt-10 md:hidden motion-up motion-up-delay-2">
+            <Link href="/projets" className="btn-glass btn-primary text-[11px]">
               Voir tous les projets
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 12h14M12 5l7 7-7 7" />

@@ -7,7 +7,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="section-stack flex items-start justify-center px-4">
+    <section id="contact" className="min-h-screen flex items-start justify-center px-4">
       <div className="section-card w-full max-w-[1400px] mx-auto px-6 py-24 lg:py-32 flex items-center">
         {/* Decorative */}
         <div className="absolute top-0 left-0 w-1/3 h-1/3 grid-pattern rounded-tl-3xl" />
@@ -15,7 +15,7 @@ export default function Contact() {
 
         <div className="max-w-5xl mx-auto w-full">
           {/* Header */}
-          <div className="max-w-2xl mb-14">
+          <div className="max-w-2xl mb-14 motion-up">
             <div className="flex items-center gap-4 mb-6">
               <span className="section-num">04</span>
               <div className="w-8 h-px bg-[var(--border2)]" />
@@ -32,9 +32,9 @@ export default function Contact() {
           </div>
 
           {/* Services I offer */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-14">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-14 motion-up motion-up-delay-1">
             {services.map((s) => (
-              <div key={s.label} className="border border-[var(--border1)] rounded-2xl p-5 flex flex-col gap-2 relative overflow-hidden">
+              <div key={s.label} className="border border-[var(--border1)] rounded-2xl p-5 flex flex-col gap-2 relative overflow-hidden hover-lift glass-card">
                 <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-white/[0.06] to-transparent" />
                 <span className="text-[12px] font-semibold text-[var(--t1)]">{s.label}</span>
                 <span className="text-[11px] text-[var(--t3)] leading-[1.6]">{s.desc}</span>
@@ -43,15 +43,15 @@ export default function Contact() {
           </div>
 
           {/* Divider */}
-          <div className="divider-label mb-14">
+          <div className="divider-label mb-14 motion-up motion-up-delay-2">
             <span className="text-[9px] text-[var(--t4)] tracking-widest uppercase whitespace-nowrap">Me joindre</span>
           </div>
 
           {/* Contact cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 motion-up motion-up-delay-3">
             <a
               href="mailto:contact@atchahoudestin.com"
-              className="group border border-[var(--border1)] rounded-2xl p-6 flex flex-col gap-3 hover:border-[var(--border2)] transition-colors relative overflow-hidden"
+              className="group border border-[var(--border1)] rounded-2xl p-6 flex flex-col gap-3 hover:border-[var(--border2)] transition-all duration-300 relative overflow-hidden hover-lift glass-card"
             >
               <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-white/[0.04] to-transparent" />
               <div className="flex items-center justify-between">
@@ -69,7 +69,7 @@ export default function Contact() {
               href="https://github.com/bjhuntcom-oss"
               target="_blank"
               rel="noopener noreferrer"
-              className="group border border-[var(--border1)] rounded-2xl p-6 flex flex-col gap-3 hover:border-[var(--border2)] transition-colors relative overflow-hidden"
+              className="group border border-[var(--border1)] rounded-2xl p-6 flex flex-col gap-3 hover:border-[var(--border2)] transition-all duration-300 relative overflow-hidden hover-lift glass-card"
             >
               <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-white/[0.04] to-transparent" />
               <div className="flex items-center justify-between">
@@ -87,7 +87,7 @@ export default function Contact() {
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="group border border-[var(--border1)] rounded-2xl p-6 flex flex-col gap-3 hover:border-[var(--border2)] transition-colors relative overflow-hidden"
+              className="group border border-[var(--border1)] rounded-2xl p-6 flex flex-col gap-3 hover:border-[var(--border2)] transition-all duration-300 relative overflow-hidden hover-lift glass-card"
             >
               <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-white/[0.04] to-transparent" />
               <div className="flex items-center justify-between">
@@ -104,7 +104,7 @@ export default function Contact() {
           </div>
 
           {/* Status bar */}
-          <div className="mt-14 flex flex-wrap items-center gap-4">
+          <div className="mt-14 flex flex-wrap items-center gap-4 motion-up motion-up-delay-4">
             <span className="badge badge-status badge-outline text-[10px]">Disponible immédiatement</span>
             <span className="badge badge-outline text-[10px]">Freelance & CDI</span>
             <span className="badge badge-outline text-[10px]">Remote & Hybride</span>
