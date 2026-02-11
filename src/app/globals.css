@@ -13,6 +13,7 @@
   --t2: #a3a3a3;
   --t3: #525252;
   --t4: #333333;
+  --accent: #ffffff;
 }
 
 @theme inline {
@@ -29,7 +30,12 @@
 
 * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
-html { scroll-behavior: auto; background: var(--bg); }
+html {
+  scroll-behavior: smooth;
+  background: var(--bg);
+  scroll-snap-type: y mandatory;
+  overflow-x: hidden;
+}
 
 body {
   background: var(--bg);
@@ -39,34 +45,151 @@ body {
   letter-spacing: -0.01em;
 }
 
-::selection { background: rgba(255,255,255,0.08); color: var(--t1); }
+::selection { background: rgba(255,255,255,0.1); color: #fff; }
 ::-webkit-scrollbar { width: 0px; }
+
+/* ─── STACKING SECTIONS ─── */
+.stack-container {
+  position: relative;
+}
 
 .section-stack {
   position: sticky;
   top: 0;
   z-index: 1;
-  background: var(--bg);
-  will-change: auto;
+  min-height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
+
+.section-stack:nth-child(1) { z-index: 1; }
 .section-stack:nth-child(2) { z-index: 2; }
 .section-stack:nth-child(3) { z-index: 3; }
 .section-stack:nth-child(4) { z-index: 4; }
 .section-stack:nth-child(5) { z-index: 5; }
-.section-stack:nth-child(6) { z-index: 6; }
-.section-stack:nth-child(7) { z-index: 7; }
-.section-stack:nth-child(8) { z-index: 8; }
 
-.glass {
-  background: var(--glass);
-  backdrop-filter: blur(40px) saturate(120%);
-  -webkit-backdrop-filter: blur(40px) saturate(120%);
-  border: 1px solid var(--border-glass);
+/* ─── CARD PANEL (inner frame per section) ─── */
+.section-card {
+  position: relative;
+  background: var(--bg);
+  border: 1px solid var(--border1);
+  border-radius: 24px;
+  min-height: 100vh;
+  overflow: hidden;
+  box-shadow:
+    0 -1px 0 0 var(--border1),
+    0 -40px 80px -20px rgba(0,0,0,0.8);
 }
 
+.section-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section-card > * { position: relative; z-index: 1; }
+
+/* ─── GLASS HEADER ─── */
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(40px) saturate(130%);
+  -webkit-backdrop-filter: blur(40px) saturate(130%);
+  border: 1px solid var(--border-glass);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+}
+
+/* ─── BADGES ─── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 5px 14px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.badge-white {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.badge-outline {
+  background: transparent;
+  border: 1px solid var(--border2);
+  color: var(--t2);
+}
+
+.badge-dark {
+  background: var(--bg3);
+  border: 1px solid var(--border1);
+  color: var(--t2);
+}
+
+.badge-ghost {
+  background: rgba(255,255,255,0.04);
+  color: var(--t3);
+}
+
+.badge-status {
+  padding-left: 10px;
+}
+
+.badge-status::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #22c55e;
+  flex-shrink: 0;
+}
+
+/* ─── DECORATIVE ─── */
+.divider-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.divider-label::before,
+.divider-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border1);
+}
+
+.section-num {
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  color: var(--t4);
+  letter-spacing: 0.08em;
+}
+
+.dot-grid {
+  background-image: radial-gradient(circle, var(--border1) 0.5px, transparent 0.5px);
+  background-size: 24px 24px;
+}
+
+.line-accent {
+  width: 32px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+}
+
+/* ─── ANNOTATIONS ─── */
 .ann-line { stroke: var(--t4); stroke-width: 0.5; stroke-dasharray: 2 2; }
 .ann-text { font-size: 9px; font-family: var(--font-mono), monospace; letter-spacing: 0.02em; color: var(--t3); }
 
+/* ─── MOCKUPS ─── */
 .mockup-frame { background: var(--bg2); border: 1px solid var(--border1); border-radius: 12px; overflow: hidden; }
 .mockup-bar { background: var(--bg3); border-bottom: 1px solid var(--border1); padding: 10px 16px; display: flex; align-items: center; gap: 8px; }
 .mockup-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border2); }
@@ -75,3 +198,12 @@ body {
 .mockup-phone { background: var(--bg2); border: 1px solid var(--border1); border-radius: 32px; padding: 12px; max-width: 280px; }
 .mockup-notch { width: 80px; height: 20px; background: var(--bg); border-radius: 12px; margin: 0 auto 8px; }
 .mockup-screen { border-radius: 20px; overflow: hidden; background: var(--bg3); }
+
+/* ─── GRID PATTERN ─── */
+.grid-pattern {
+  background-image:
+    linear-gradient(var(--border1) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border1) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.3;
+}
