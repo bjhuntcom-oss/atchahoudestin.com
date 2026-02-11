@@ -58,7 +58,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="min-h-screen flex items-start justify-center px-4">
+    <section id="about" className="min-h-screen flex items-start justify-center px-4 bg-[var(--bg)]">
       <div className="section-card w-full max-w-[1400px] mx-auto px-6 py-24 lg:py-32">
         {/* Decorative dot grid */}
         <div className="absolute top-0 right-0 w-1/3 h-1/3 dot-grid opacity-20 rounded-tr-3xl" />

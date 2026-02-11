@@ -9,7 +9,7 @@ export default function ProjectsGrid() {
   const featured = projects.slice(0, 6);
 
   return (
-    <section className="min-h-screen flex items-start justify-center px-4">
+    <section className="min-h-screen flex items-start justify-center px-4 bg-[var(--bg)]">
       <div className="section-card w-full max-w-[1400px] mx-auto px-6 py-24 lg:py-32">
         {/* Decorative */}
         <div className="absolute bottom-0 left-0 w-1/4 h-1/4 dot-grid opacity-15 rounded-bl-3xl" />

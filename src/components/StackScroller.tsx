@@ -14,6 +14,13 @@ export default function StackScroller({ children }: Props) {
   const total = items.length;
   const touchStartY = useRef(0);
 
+  useEffect(() => {
+    document.documentElement.classList.add("scroll-locked");
+    return () => {
+      document.documentElement.classList.remove("scroll-locked");
+    };
+  }, []);
+
   const goTo = useCallback(
     (index: number) => {
       if (isAnimating) return;

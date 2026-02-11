@@ -7,7 +7,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="min-h-screen flex items-start justify-center px-4">
+    <section id="contact" className="min-h-screen flex items-start justify-center px-4 bg-[var(--bg)]">
       <div className="section-card w-full max-w-[1400px] mx-auto px-6 py-24 lg:py-32 flex items-center">
         {/* Decorative */}
         <div className="absolute top-0 left-0 w-1/3 h-1/3 grid-pattern rounded-tl-3xl" />
